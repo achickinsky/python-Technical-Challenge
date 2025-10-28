@@ -32,6 +32,7 @@ to run either version, you need to create a json file that contains the followin
 }
 
 after createing the file, you need to change fhe file named in the open file statement in main routine
+
 you can run the basic version (10-28-25) without any extensions
 
 if you run the enhanced version (10-27-25) you need to install wikipedia extension before running
