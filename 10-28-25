@@ -1,0 +1,49 @@
+import json
+import urllib.parse
+import urllib.request
+
+
+def answer_question (questions, userQuestion):
+    testQuestion = " ".join(userQuestion.split())
+    for i in range (len (questions['questions'])):
+        myQuestion = questions['questions'][i]["question"]
+        if testQuestion == myQuestion:
+            print (questions['questions'][i]["answer"])
+            return
+    print ("invalid question")
+    return
+    
+#####################################
+#
+# main routine
+#
+#####################################
+try:
+    #####################################################
+    #
+    # change the open statement to point to the json file
+    #
+    #####################################################
+    with open('../questions.json', 'r') as file:
+        questions = json.load(file)
+except json.JSONDecodeError:
+    print("Error: Failed to decode JSON from 'questions' file.")
+    exit (0)
+### for debug  #######
+#print (" ########  input questions file  #########")
+#print(json.dumps(questions, indent=4))
+#print ("  #########################################") 
+######################
+# test input
+#inputQuestion = "What does the   eligibility   \t verification agent (EVA) do?      \n"
+inputQuestion = ""
+while inputQuestion != "q":
+    inputQuestion = input("Enter your question or type 'q' to exit: ")
+    if inputQuestion == "q":
+        exit(0)
+    answer_question(questions,inputQuestion)
+
+
+    
+
+    
